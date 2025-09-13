@@ -1,15 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punjab Alumni Network - Government of Punjab</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --punjab-blue: #0047AB;
+            --punjab-yellow: #FFD700;
+            --punjab-green: #138808;
+            --government-red: #D22630;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        
+        .government-header {
+            background: linear-gradient(135deg, var(--punjab-blue) 0%, #00264D 100%);
+            border-bottom: 4px solid var(--punjab-yellow);
+        }
+        
+        .logo-container {
+            background: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--punjab-yellow);
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d1c2863-16a2-4cd8-9faf-12d02beee446.png') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--punjab-blue);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-punjab {
+            background: linear-gradient(45deg, var(--punjab-blue), var(--government-red));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-punjab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 71, 171, 0.3);
+            color: white;
+        }
+        
+        .alumni-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .alumni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #00264D 0%, var(--punjab-blue) 100%);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--punjab-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--punjab-blue);
+        }
+        
+        .government-seal {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--punjab-yellow);
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="government-header">
@@ -17,15 +136,14 @@
             <div class="d-flex justify-content-between align-items-center py-3">
                 <div class="d-flex align-items-center">
                     <div class="logo-container me-3">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d9a52fff-ec34-451b-9adf-787b435883de.png"
-                            alt="Government of Punjab Official Seal" class="img-fluid">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d9a52fff-ec34-451b-9adf-787b435883de.png" alt="Government of Punjab Official Seal" class="img-fluid">
                     </div>
                     <div>
                         <h4 class="text-white mb-0">Government of Punjab</h4>
                         <small class="text-light">Alumni Data Management System</small>
                     </div>
                 </div>
-
+                
                 <nav class="d-none d-md-block">
                     <ul class="nav">
                         <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
@@ -34,54 +152,55 @@
                         <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
                         <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Language
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('pa')">ਪੰਜਾਬੀ</a></li>
-                            </ul>
-                        </li>
+  <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Language
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">English</a></li>
+    <li><a class="dropdown-item" href="#" onclick="switchLanguage('pa')">ਪੰਜਾਬੀ</a></li>
+  </ul>
+</li>
 
                         <!-- Login Dropdown in Navbar -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Login
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#studentLoginModal">
-                                        Student Login/Register
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#alumniLoginModal">
-                                        Alumni Login/Register
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#adminLoginModal">
-                                        Admin Login
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                       <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Login
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li>
+      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#studentLoginModal">
+        Student Login/Register
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#alumniLoginModal">
+        Alumni Login/Register
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal">
+        Admin Login
+      </a>
+    </li>
+  </ul>
+</li>
 
                     </ul>
                 </nav>
-
+                
                 <button class="btn btn-light d-md-none">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
-
+    
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -89,8 +208,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h1 class="display-4 fw-bold mb-4">Punjab Alumni Network</h1>
-                    <p class="lead mb-4">Connecting the brightest minds from Punjab to foster growth, innovation, and
-                        community development</p>
+                    <p class="lead mb-4">Connecting the brightest minds from Punjab to foster growth, innovation, and community development</p>
                     <div class="d-flex gap-3 flex-wrap">
                         <a href="#register" class="btn btn-punjab btn-lg">Join Now</a>
                         <a href="#directory" class="btn btn-outline-light btn-lg">Find Alumni</a>
@@ -131,7 +249,7 @@
                 <h2 class="fw-bold">Platform Features</h2>
                 <p class="lead">Comprehensive tools for alumni connection and engagement</p>
             </div>
-
+            
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="section-card p-4 h-100 text-center">
@@ -139,8 +257,7 @@
                             <i class="fas fa-database"></i>
                         </div>
                         <h4>Centralized Database</h4>
-                        <p>Secure and comprehensive database of all Punjab alumni with advanced search and filtering
-                            capabilities</p>
+                        <p>Secure and comprehensive database of all Punjab alumni with advanced search and filtering capabilities</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
@@ -171,32 +288,28 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="fw-bold mb-4">Join the Punjab Alumni Network</h2>
-                    <p class="lead">Register today to connect with fellow alumni, access exclusive resources, and
-                        contribute to Punjab's development</p>
+                    <p class="lead">Register today to connect with fellow alumni, access exclusive resources, and contribute to Punjab's development</p>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Network with successful
-                            professionals</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Access career
-                            opportunities</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Participate in mentorship
-                            programs</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Attend exclusive events
-                        </li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Network with successful professionals</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Access career opportunities</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Participate in mentorship programs</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Attend exclusive events</li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
                     <div class="section-card p-5">
-                        <h4 class="text-center mb-4">Ready to Join?</h4>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScpViW89O1ITU9m2fsac-SUznZB5DsCIa9_B_mlfJNDiLF_xw/viewform"
-                            class="btn btn-punjab btn-lg w-100" target="_blank">
-                            Fill the Registration Form
-                        </a>
-                    </div>
-
-
+                    <h4 class="text-center mb-4">Ready to Join?</h4>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpViW89O1ITU9m2fsac-SUznZB5DsCIa9_B_mlfJNDiLF_xw/viewform" 
+                       class="btn btn-punjab btn-lg w-100" 
+                       target="_blank">
+                        Fill the Registration Form
+                    </a>
+                </div>
+                    
+                
+            </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -207,13 +320,11 @@
                 <h2 class="fw-bold">Alumni Directory</h2>
                 <p class="lead">Connect with fellow alumni from across the globe</p>
             </div>
-
+            
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="alumni-card card h-100">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cf4af3e5-057f-4fe5-80d9-a243acd0f1b0.png"
-                            class="card-img-top"
-                            alt="Portrait of successful Punjab alumni business executive in professional attire">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cf4af3e5-057f-4fe5-80d9-a243acd0f1b0.png" class="card-img-top" alt="Portrait of successful Punjab alumni business executive in professional attire">
                         <div class="card-body">
                             <h5 class="card-title">Dr. Simranjeet Singh</h5>
                             <p class="text-muted">Class of 2005</p>
@@ -227,9 +338,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="alumni-card card h-100">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15fca3d2-e356-4d51-a35d-03fcbc4a834f.png"
-                            class="card-img-top"
-                            alt="Portrait of accomplished Punjab alumni medical researcher in lab coat">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/15fca3d2-e356-4d51-a35d-03fcbc4a834f.png" class="card-img-top" alt="Portrait of accomplished Punjab alumni medical researcher in lab coat">
                         <div class="card-body">
                             <h5 class="card-title">Dr. Priya Sharma</h5>
                             <p class="text-muted">Class of 2010</p>
@@ -243,9 +352,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="alumni-card card h-100">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c05bc196-dc03-4a2f-8347-b47689a024aa.png"
-                            class="card-img-top"
-                            alt="Portrait of Punjab alumni entrepreneur with technology startup background">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c05bc196-dc03-4a2f-8347-b47689a024aa.png" class="card-img-top" alt="Portrait of Punjab alumni entrepreneur with technology startup background">
                         <div class="card-body">
                             <h5 class="card-title">Rahul Verma</h5>
                             <p class="text-muted">Class of 2015</p>
@@ -258,7 +365,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="text-center mt-4">
                 <a href="#directory" class="btn btn-punjab">View All Alumni</a>
             </div>
@@ -272,7 +379,7 @@
                 <h2 class="fw-bold">Upcoming Events</h2>
                 <p class="lead">Join our community events and networking sessions</p>
             </div>
-
+            
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="section-card p-4 h-100">
@@ -286,8 +393,7 @@
                                 <small class="text-muted">Virtual Conference</small>
                             </div>
                         </div>
-                        <p>Annual gathering of Punjab alumni from around the world featuring keynote speakers and
-                            networking sessions</p>
+                        <p>Annual gathering of Punjab alumni from around the world featuring keynote speakers and networking sessions</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <small><i class="fas fa-users me-1"></i> 500+ Attendees</small>
                             <a href="#" class="btn btn-sm btn-outline-primary">Register</a>
@@ -306,8 +412,7 @@
                                 <small class="text-muted">Chandigarh</small>
                             </div>
                         </div>
-                        <p>Interactive workshop focusing on career advancement, skill development, and industry trends
-                        </p>
+                        <p>Interactive workshop focusing on career advancement, skill development, and industry trends</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <small><i class="fas fa-users me-1"></i> 100+ Attendees</small>
                             <a href="#" class="btn btn-sm btn-outline-success">Register</a>
@@ -324,18 +429,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="fw-bold mb-4">About Punjab Alumni Network</h2>
-                    <p>The Punjab Alumni Network is an initiative by the Government of Punjab to create a robust
-                        ecosystem connecting alumni from various educational institutions across the state.</p>
-                    <p>Our mission is to foster lifelong connections between alumni, support current students, and
-                        contribute to the development of Punjab through knowledge sharing, mentorship, and collaborative
-                        initiatives.</p>
-                    <p>This platform serves as a central hub for alumni to reconnect, network, and give back to their
-                        alma mater and community.</p>
+                    <p>The Punjab Alumni Network is an initiative by the Government of Punjab to create a robust ecosystem connecting alumni from various educational institutions across the state.</p>
+                    <p>Our mission is to foster lifelong connections between alumni, support current students, and contribute to the development of Punjab through knowledge sharing, mentorship, and collaborative initiatives.</p>
+                    <p>This platform serves as a central hub for alumni to reconnect, network, and give back to their alma mater and community.</p>
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="government-seal mb-3">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66844629-6a84-46d8-b520-64873261a1d3.png"
-                            alt="Official Government of Punjab seal with emblem" class="img-fluid">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66844629-6a84-46d8-b520-64873261a1d3.png" alt="Official Government of Punjab seal with emblem" class="img-fluid">
                     </div>
                     <h5>Government of Punjab Initiative</h5>
                     <p class="text-muted">Building bridges for a brighter future</p>
@@ -390,51 +490,126 @@
             </div>
         </div>
     </footer>
+    <!-- Student Login Modal -->
+<div class="modal fade" id="studentLoginModal" tabindex="-1" aria-labelledby="studentLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="studentLoginLabel">Student Login / Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="studentLoginForm">
+          <div class="mb-3">
+            <label for="studentEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="studentEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="studentPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="studentPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Alumni Login Modal -->
+<div class="modal fade" id="alumniLoginModal" tabindex="-1" aria-labelledby="alumniLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="alumniLoginLabel">Alumni Login / Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="alumniLoginForm">
+          <div class="mb-3">
+            <label for="alumniEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="alumniEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="alumniPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="alumniPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Login Modal -->
+<div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="adminLoginLabel">Admin Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="adminLoginForm">
+          <div class="mb-3">
+            <label for="adminEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="adminEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="adminPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="adminPassword" required>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function showLogin(role) {
-            const title = document.getElementById("loginCardTitle");
-            const container = document.getElementById("loginCardContainer");
+         function showLogin(role) {
+    const title = document.getElementById("loginCardTitle");
+    const container = document.getElementById("loginCardContainer");
 
-            // Set login card title
-            switch (role) {
-                case 'student':
-                    title.innerText = 'Student Login';
-                    break;
-                case 'alumni':
-                    title.innerText = 'Alumni Login';
-                    break;
-                case 'admin':
-                    title.innerText = 'Admin Login';
-                    break;
-            }
+    // Set login card title
+    switch (role) {
+      case 'student':
+        title.innerText = 'Student Login';
+        break;
+      case 'alumni':
+        title.innerText = 'Alumni Login';
+        break;
+      case 'admin':
+        title.innerText = 'Admin Login';
+        break;
+    }
 
-            // Show the login card
-            container.style.display = "block";
+    // Show the login card
+    container.style.display = "block";
 
-            // Scroll to the card smoothly
-            container.scrollIntoView({ behavior: "smooth" });
-        }
+    // Scroll to the card smoothly
+    container.scrollIntoView({ behavior: "smooth" });
+  }
 
-        // Optional: Simple form handler
-        document.getElementById("loginForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            alert("Logged in successfully!");
-            this.reset();
-        });
+  // Optional: Simple form handler
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Logged in successfully!");
+    this.reset();
+  });
         // Simple form validation
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const registrationForm = document.querySelector('form');
             if (registrationForm) {
-                registrationForm.addEventListener('submit', function (e) {
+                registrationForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     alert('Thank you for registering with Punjab Alumni Network! We will contact you shortly.');
                     registrationForm.reset();
                 });
             }
-
+            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -449,5 +624,22 @@
                 });
             });
         });
+        document.getElementById("studentLoginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Student login successful!");
+    this.reset();
+  });
+
+  document.getElementById("alumniLoginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Alumni login successful!");
+    this.reset();
+  });
+
+  document.getElementById("adminLoginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Admin login successful!");
+    this.reset();
+  });
     </script>
 </body>
